@@ -22,4 +22,8 @@ deep comparisons, and custom assertions, making it a powerful tool for
 writing concise, easy-to-understand, and reliable tests. 
 Overall, it improves test quality and debugging efficiency.
 
-## SUTS
+## System Under Testing
+
+ System under testing (SUT) refers to the application or component 
+ being evaluated during the testing process. The SUT is typically 
+ represented by the class or method under examination.

@@ -74,5 +74,37 @@ namespace NetworkUtility.Tests.Ping
             result.Should().BeEquivalentTo(expected);
             result.Ttl.Should().Be(64);
         }
+
+        [Fact]
+        public void NetworkService_MostRecentPings_ReturnsArray()
+        {
+            // Arrange
+            var expected = new[]
+            {
+                new PingOptions()
+                {
+                    DontFragment = true,
+                    Ttl = 64
+                },
+                new PingOptions()
+                {
+                    DontFragment = true,
+                    Ttl = 64
+                },
+                new PingOptions()
+                {
+                    DontFragment = true,
+                    Ttl = 64
+                }
+            };
+            // Act
+            var result = _pingService.MostRecentPings();
+
+            // Assert Warning: Be Careful
+
+            result.Should().BeOfType<PingOptions[]>();
+            result.Should().BeEquivalentTo(expected);
+            result.Should().Contain(x => x.DontFragment == true);
+        }
     }
 }
